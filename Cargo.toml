@@ -1,0 +1,33 @@
+[package]
+name = "g435-battery"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.85"
+license = "GPL-3.0-or-later"
+description = "Battery level of the Logitech G435 headset over either of its 2.4 GHz USB dongles (Windows)"
+repository = "https://github.com/DopleZZ/g435-battery"
+keywords = ["logitech", "g435", "headset", "battery", "hid"]
+categories = ["hardware-support"]
+
+[dependencies.windows]
+version = "0.62.2"
+features = [
+  "Win32_Foundation",
+  "Win32_Security",
+  "Win32_Devices_DeviceAndDriverInstallation",
+  "Win32_Devices_HumanInterfaceDevice",
+  "Win32_Storage_FileSystem",
+  "Win32_System_Com",
+  "Win32_System_Com_StructuredStorage",
+  "Win32_System_IO",
+  "Win32_System_Threading",
+  "Win32_System_Variant",
+  "Win32_Media_Audio",
+  "Win32_Media_Audio_Endpoints",
+  "Win32_UI_Shell_PropertiesSystem",
+]
+
+[profile.release]
+opt-level = "s"
+lto = true
+codegen-units = 1
